@@ -29,7 +29,7 @@ const Register = () => {
                                     <Form.Control
                                         type="text"
                                         placeholder="Choose a username"
-                                        className="bg-slate-800 border-secondary text-white py-2"
+                                        className="bg-slate-800 border-secondary text-black py-2"
                                         value={formData.username}
                                         onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                                         required
@@ -41,7 +41,7 @@ const Register = () => {
                                     <Form.Control
                                         type="email"
                                         placeholder="Enter email"
-                                        className="bg-slate-800 border-secondary text-white py-2"
+                                        className="bg-slate-800 border-secondary text-black py-2"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         required
@@ -53,7 +53,7 @@ const Register = () => {
                                     <Form.Control
                                         type="password"
                                         placeholder="Create a password"
-                                        className="bg-slate-800 border-secondary text-white py-2"
+                                        className="bg-slate-800 border-secondary text-black py-2"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                         required

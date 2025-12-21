@@ -29,7 +29,7 @@ const Login = () => {
                                     <Form.Control
                                         type="text"
                                         placeholder="Enter username"
-                                        className="bg-slate-800 border-secondary text-white py-2"
+                                        className="bg-slate-800 border-secondary text-black py-2"
                                         value={formData.username}
                                         onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                                         required
@@ -41,7 +41,7 @@ const Login = () => {
                                     <Form.Control
                                         type="password"
                                         placeholder="Password"
-                                        className="bg-slate-800 border-secondary text-white py-2"
+                                        className="bg-slate-800 border-secondary text-black py-2"
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                         required
