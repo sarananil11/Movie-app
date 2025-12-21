@@ -1,0 +1,80 @@
+/* Custom Theme Variables */
+:root {
+  --movie-bg: #0f172a;
+  --movie-card-bg: #1e293b;
+  --movie-accent: #3b82f6;
+  --movie-text: #f8fafc;
+  --movie-text-muted: #94a3b8;
+}
+
+body {
+  background-color: var(--movie-bg);
+  color: var(--movie-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.navbar {
+  background-color: #020617 !important;
+  border-bottom: 1px solid #1e293b;
+}
+
+.card {
+  background-color: var(--movie-card-bg);
+  border: 1px solid #334155;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  color: var(--movie-text);
+  font-weight: 600;
+}
+
+.text-muted {
+  color: var(--movie-text-muted) !important;
+}
+
+.btn-primary {
+  background-color: var(--movie-accent);
+  border-color: var(--movie-accent);
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--movie-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+.hero-section {
+  padding: 100px 0;
+  background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
