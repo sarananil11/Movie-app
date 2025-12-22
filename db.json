@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "id": "6492",
+      "username": "saran123",
+      "email": "saran@gmail.com",
+      "password": "Saran123!"
+    },
+    {
+      "id": "d02d",
+      "username": "Robert",
+      "email": "robpatt@gmail.com",
+      "password": "robpatt123"
+    }
+  ],
+  "watchlist": [
+    {
+      "id": "1",
+      "title": "Inception",
+      "overview": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+      "poster_path": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
+      "backdrop_path": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop",
+      "release_date": "2010-07-15",
+      "vote_average": 8.3,
+      "runtime": 148,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Action"
+        },
+        {
+          "id": 878,
+          "name": "Science Fiction"
+        }
+      ],
+      "userId": "6492",
+      "personalRating": 0,
+      "note": ""
+    },
+    {
+      "id": "2",
+      "title": "Interstellar",
+      "overview": "The adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+      "poster_path": "https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg",
+      "backdrop_path": "https://images.unsplash.com/photo-1506318137071-a8e063b4bcc0?q=80&w=1952&auto=format&fit=crop",
+      "release_date": "2014-11-05",
+      "vote_average": 8.4,
+      "runtime": 169,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 12,
+          "name": "Adventure"
+        },
+        {
+          "id": 18,
+          "name": "Drama"
+        }
+      ],
+      "userId": "6492",
+      "personalRating": 0,
+      "note": ""
+    },
+    {
+      "id": "2883",
+      "title": "Inception",
+      "overview": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+      "poster_path": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
+      "backdrop_path": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop",
+      "release_date": "2010-07-15",
+      "vote_average": 8.3,
+      "runtime": 148,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 28,
+          "name": "Action"
+        },
+        {
+          "id": 878,
+          "name": "Science Fiction"
+        }
+      ],
+      "movieId": 1,
+      "userId": "d02d",
+      "personalRating": 9,
+      "note": "Awesome movie. Nolan magic."
+    }
+  ]
+}

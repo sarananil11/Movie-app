@@ -5,14 +5,20 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
     const [formData, setFormData] = useState({ username: '', email: '', password: '' });
+    const [error, setError] = useState('');
     const { register } = useAuth();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (formData.username && formData.password) {
-            register({ username: formData.username, email: formData.email });
-            navigate('/');
+        setError('');
+        if (formData.username && formData.email && formData.password) {
+            const result = await register(formData);
+            if (result.success) {
+                navigate('/');
+            } else {
+                setError(result.message);
+            }
         }
     };
 
@@ -23,6 +29,7 @@ const Register = () => {
                     <Card className="p-4 shadow-lg border-0 rounded-4">
                         <Card.Body>
                             <h2 className="text-center mb-4 fw-bold">Create Account</h2>
+                            {error && <div className="alert alert-danger py-2 small mb-3">{error}</div>}
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="regUsername">
                                     <Form.Label className="small text-muted">Username</Form.Label>

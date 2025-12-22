@@ -6,6 +6,7 @@ import Watchlist from './pages/Watchlist';
 import MovieDetails from './pages/MovieDetails';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Mynotes from './pages/Mynotes';
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -24,6 +25,7 @@ function App() {
             {/* Protected Routes */}
             <Route element={<ProtectedRoute />}>
               <Route path="/watchlist" element={<Watchlist />} />
+              <Route path="/mynotes" element={<Mynotes />} />
             </Route>
           </Routes>
         </main>

@@ -14,18 +14,49 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    const login = (userData) => {
-        // Simulate API call
-        const mockUser = { ...userData, token: 'mock-jwt-token-' + Date.now() };
-        localStorage.setItem('movie_app_user', JSON.stringify(mockUser));
-        setUser(mockUser);
+    const login = async (userData) => {
+        try {
+            const response = await fetch(`http://localhost:5000/users?email=${userData.email}&password=${userData.password}`);
+            const users = await response.json();
+
+            if (users.length > 0) {
+                const userWithToken = { ...users[0], token: 'mock-jwt-token-' + Date.now() };
+                localStorage.setItem('movie_app_user', JSON.stringify(userWithToken));
+                setUser(userWithToken);
+                return { success: true };
+            } else {
+                return { success: false, message: 'Invalid email or password' };
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            return { success: false, message: 'Server error' };
+        }
     };
 
-    const register = (userData) => {
-        // Simulate registration
-        const mockUser = { ...userData, token: 'mock-jwt-token-' + Date.now() };
-        localStorage.setItem('movie_app_user', JSON.stringify(mockUser));
-        setUser(mockUser);
+    const register = async (userData) => {
+        try {
+            // Check if user already exists
+            const checkRes = await fetch(`http://localhost:5000/users?email=${userData.email}`);
+            const existingUsers = await checkRes.json();
+
+            if (existingUsers.length > 0) {
+                return { success: false, message: 'Email already registered' };
+            }
+
+            const response = await fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData)
+            });
+            const newUser = await response.json();
+            const userWithToken = { ...newUser, token: 'mock-jwt-token-' + Date.now() };
+            localStorage.setItem('movie_app_user', JSON.stringify(userWithToken));
+            setUser(userWithToken);
+            return { success: true };
+        } catch (error) {
+            console.error('Registration error:', error);
+            return { success: false, message: 'Server error' };
+        }
     };
 
     const logout = () => {

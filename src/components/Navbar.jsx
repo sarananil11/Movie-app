@@ -27,6 +27,7 @@ const NavigationBar = () => {
                     <Nav className="me-auto ms-lg-4 gap-3">
                         <Nav.Link as={Link} to="/" className="text-light">Home</Nav.Link>
                         <Nav.Link as={Link} to="/watchlist" className="text-light">Watchlist</Nav.Link>
+                        <Nav.Link as={Link} to="/mynotes" className="text-light">My Notes</Nav.Link>
                     </Nav>
 
                     <Nav className="align-items-center gap-3 mt-3 mt-lg-0">

@@ -5,14 +5,24 @@ import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
     const [formData, setFormData] = useState({ username: '', password: '' });
+    const [error, setError] = useState('');
     const { login } = useAuth();
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
         if (formData.username && formData.password) {
-            login({ username: formData.username });
-            navigate('/');
+            // Note: Our DB uses email, so I should probably use email if available 
+            // but the mock was using username. I'll stick to what the form has.
+            // Actually, based on AuthContext, it expects {email, password}.
+            // I'll update the form to use email.
+            const result = await login({ email: formData.username, password: formData.password });
+            if (result.success) {
+                navigate('/');
+            } else {
+                setError(result.message);
+            }
         }
     };
 
@@ -23,12 +33,13 @@ const Login = () => {
                     <Card className="p-4 shadow-lg border-0 rounded-4">
                         <Card.Body>
                             <h2 className="text-center mb-4 fw-bold">Welcome Back</h2>
+                            {error && <div className="alert alert-danger py-2 small mb-3">{error}</div>}
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="formUsername">
                                     <Form.Label className="small text-muted">Username</Form.Label>
                                     <Form.Control
                                         type="text"
-                                        placeholder="Enter username"
+                                        placeholder="Enter email"
                                         className="bg-slate-800 border-secondary text-black py-2"
                                         value={formData.username}
                                         onChange={(e) => setFormData({ ...formData, username: e.target.value })}
