@@ -22,7 +22,7 @@ export const WatchlistProvider = ({ children }) => {
             }
         };
         fetchWatchlist();
-    }, [user]);
+    }, [user]); // dependancy array is used when the case is to update the state.
 
     const addToWatchlist = async (movie) => {
         if (!user) return;
