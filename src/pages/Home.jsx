@@ -79,7 +79,7 @@ const Home = () => {
 
                 {loading ? (
                     <div className="d-flex justify-content-center py-5">
-                        <Spinner animation="border" variant="primary" />
+                        <Spinner animation="border" variant="danger" />
                     </div>
                 ) : error ? (
                     <div className="alert alert-danger bg-danger bg-opacity-10 border-danger text-danger rounded-4 py-4 text-center">

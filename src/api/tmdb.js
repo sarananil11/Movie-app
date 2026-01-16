@@ -3,7 +3,7 @@ import { MOCK_MOVIES, MOCK_TRENDING } from './mockData';
 
 const fetchFromTMDB = async (endpoint, params = {}) => {
     // Check if API key is still the placeholder or empty
-    if (!TMDB_API_KEY || TMDB_API_KEY === "YOUR_TMDB_API_KEY_HERE") {
+    if (!TMDB_API_KEY) {
         console.warn("Using Mock Data: TMDB API Key not provided.");
         return handleMockRequest(endpoint, params);
     }

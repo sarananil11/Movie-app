@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Popcorn, LogOut, User } from 'lucide-react';
+import { Popcorn, LogOut, User, UserRound } from 'lucide-react';
 
 const NavigationBar = () => {
     const { user, logout } = useAuth();
@@ -37,20 +37,22 @@ const NavigationBar = () => {
                         <Nav.Link as={Link} to="/mynotes" className="text-light">My Notes</Nav.Link>
                     </Nav>
 
-                    <Nav className="align-items-center gap-3 mt-3 mt-lg-0">
+                    <Nav className="align-items-center  gap-3 mt-3 mt-lg-0">
                         {user ? (
                             <>
                                 <div className="d-flex align-items-center gap-2 text-muted pe-lg-3 border-end border-secondary">
-                                    <User size={18} />
-                                    <span className="small d-none d-md-inline">Hi, {user.username}</span>
+                                    <UserRound size={18} color='white' />
+                                    <span className="small d-none text-white d-md-inline">{user.username}</span>
                                 </div>
                                 <Button
                                     variant="link"
                                     onClick={handleLogout}
-                                    className="p-1 text-muted hover-white transition-all text-decoration-none"
+                                    className="p-1 hover-white transition-all text-decoration-none"
                                     title="Logout"
+                                    
                                 >
-                                    <LogOut size={20} />
+                                    Logout  
+                                    <LogOut size={20}  />
                                 </Button>
                             </>
                         ) : (
