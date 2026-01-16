@@ -4,19 +4,36 @@ import { Link } from 'react-router-dom';
 import { Bookmark, BookmarkCheck, Star } from 'lucide-react';
 import { TMDB_IMAGE_BASE_URL } from '../config';
 import { useWatchlist } from '../context/WatchlistContext';
+import { useAuth } from '../context/AuthContext';
+
 
 const MovieCard = ({ movie }) => {
     const { addToWatchlist, removeFromWatchlist, isInWatchlist } = useWatchlist();
+    const { user } = useAuth();
     const isAdded = isInWatchlist(movie.id);
 
     const toggleWatchlist = (e) => {
         e.preventDefault();
+
+        // Login 
+        if (!user) {
+            alert("Please login to manage your watchlist.");
+            return;
+        }
+
         if (isAdded) {
             removeFromWatchlist(movie.id);
+            alert("Removed from watchlist")
+            console.log("Removed from watchlist")
         } else {
             addToWatchlist(movie);
+            alert("Added to watchlist")
+            console.log("Added from watchlist")
         }
     };
+
+
+    
 
     const posterPath = movie.poster_path
         ? (movie.poster_path.startsWith('http') ? movie.poster_path : `${TMDB_IMAGE_BASE_URL}${movie.poster_path}`)

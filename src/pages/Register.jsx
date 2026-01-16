@@ -9,16 +9,37 @@ const Register = () => {
     const { register } = useAuth();
     const navigate = useNavigate();
 
+    // Regex patterns
+    const usernameRegex = /^[A-Za-z]{3,}$/; // Only alphabets, min 3 chars
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; 
+    // Min 8 chars, only letters + numbers, must include at least one number
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
-        if (formData.username && formData.email && formData.password) {
-            const result = await register(formData);
-            if (result.success) {
-                navigate('/');
-            } else {
-                setError(result.message);
-            }
+
+        const { username, email, password } = formData;
+
+        // Validation
+        if (!usernameRegex.test(username)) {
+            return setError("Username must be at least 3 alphabets (A-Z only).");
+        }
+
+        if (!emailRegex.test(email)) {
+            return setError("Enter a valid email address.");
+        }
+
+        if (!passwordRegex.test(password)) {
+            return setError("Password must be at least 8 characters and include letters and numbers only.");
+        }
+
+        // If all good → register
+        const result = await register(formData);
+        if (result.success) {
+            navigate('/');
+        } else {
+            setError(result.message);
         }
     };
 
@@ -30,6 +51,7 @@ const Register = () => {
                         <Card.Body>
                             <h2 className="text-center mb-4 fw-bold">Create Account</h2>
                             {error && <div className="alert alert-danger py-2 small mb-3">{error}</div>}
+
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="regUsername">
                                     <Form.Label className="small text-muted">Username</Form.Label>

@@ -13,10 +13,7 @@ const Login = () => {
         e.preventDefault();
         setError('');
         if (formData.username && formData.password) {
-            // Note: Our DB uses email, so I should probably use email if available 
-            // but the mock was using username. I'll stick to what the form has.
-            // Actually, based on AuthContext, it expects {email, password}.
-            // I'll update the form to use email.
+
             const result = await login({ email: formData.username, password: formData.password });
             if (result.success) {
                 navigate('/');
