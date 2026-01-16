@@ -49,7 +49,7 @@ const Register = () => {
                 <Col md={6} lg={5}>
                     <Card className="p-4 shadow-lg border-0 rounded-4">
                         <Card.Body>
-                            <h2 className="text-center mb-4 fw-bold">Create Account</h2>
+                            <h2 className="text-center mb-4 text-white fw-bold">Create Account</h2>
                             {error && <div className="alert alert-danger py-2 small mb-3">{error}</div>}
 
                             <Form onSubmit={handleSubmit}>

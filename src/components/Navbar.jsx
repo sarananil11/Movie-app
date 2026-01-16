@@ -9,9 +9,16 @@ const NavigationBar = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
+    const confirmed = window.confirm("Are you sure you want to logout?");
+    if (confirmed) {
         logout();
         navigate('/login');
-    };
+    }
+};
+
+
+    
+    
 
     return (
         <Navbar variant="dark" expand="lg" sticky="top" className="py-3 shadow-sm">

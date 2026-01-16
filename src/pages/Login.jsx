@@ -8,6 +8,8 @@ const Login = () => {
     const [error, setError] = useState('');
     const { login } = useAuth();
     const navigate = useNavigate();
+    const isDisabled = !formData.password;
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -29,11 +31,11 @@ const Login = () => {
                 <Col md={6} lg={4}>
                     <Card className="p-4 shadow-lg border-0 rounded-4">
                         <Card.Body>
-                            <h2 className="text-center mb-4 fw-bold">Welcome Back</h2>
+                            <h2 className="text-center mb-4  text-white fw-bold">Welcome Back</h2>
                             {error && <div className="alert alert-danger py-2 small mb-3">{error}</div>}
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group className="mb-3" controlId="formUsername">
-                                    <Form.Label className="small text-muted">Username</Form.Label>
+                                    <Form.Label className="small text-muted">Email</Form.Label>
                                     <Form.Control
                                         type="text"
                                         placeholder="Enter email"
@@ -56,7 +58,7 @@ const Login = () => {
                                     />
                                 </Form.Group>
 
-                                <Button variant="primary" type="submit" className="w-100 py-2 fw-bold rounded-pill mb-3">
+                                <Button disabled={isDisabled} variant="primary" type="submit" className="w-100 py-2 fw-bold rounded-pill mb-3">
                                     Sign In
                                 </Button>
 
