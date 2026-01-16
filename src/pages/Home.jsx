@@ -50,7 +50,7 @@ const Home = () => {
             <section className="hero-section text-center">
                 <Container>
                     <h1 className="display-3 fw-bold mb-4">
-                        Connect with <span className="text-primary">Cinema</span>
+                        Connect with <span className="text-danger">Cinema</span>
                     </h1>
                     <p className="lead text-muted max-w-2xl mx-auto mb-5">
                         Discover millions of movies, TV shows and people. Explore now and add to your personal watchlist.

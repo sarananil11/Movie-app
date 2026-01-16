@@ -23,7 +23,7 @@ const NavigationBar = () => {
     return (
         <Navbar variant="dark" expand="lg" sticky="top" className="py-3 shadow-sm">
             <Container>
-                <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2 fw-bold text-primary fs-3">
+                <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2 fw-bold text-danger fs-3">
                     <Popcorn size={32} />
                     <span className="d-none d-sm-inline">MovieWatch</span>
                 </Navbar.Brand>
