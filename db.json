@@ -139,6 +139,35 @@
       "userId": "aebd",
       "personalRating": 0,
       "note": "aabb"
+    },
+    {
+      "id": "b883",
+      "title": "The Dark Knight",
+      "overview": "Batman raises the stakes in his war on crime. With the help of Lt. Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the streets.",
+      "poster_path": "https://rukminim2.flixcart.com/image/480/640/xif0q/poster/z/n/7/small-poster-dark-knight-joker-sl-15603-wall-poster-13x19-inches-original-imagdqez7gfxcbpz.jpeg?q=90",
+      "backdrop_path": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=2070&auto=format&fit=crop",
+      "release_date": "2008-07-16",
+      "vote_average": 8.5,
+      "runtime": 152,
+      "status": "Released",
+      "genres": [
+        {
+          "id": 18,
+          "name": "Drama"
+        },
+        {
+          "id": 28,
+          "name": "Action"
+        },
+        {
+          "id": 80,
+          "name": "Crime"
+        }
+      ],
+      "movieId": 3,
+      "userId": "86f6",
+      "personalRating": 0,
+      "note": ""
     }
   ]
 }

@@ -20,8 +20,8 @@ const MovieCard = ({ movie }) => {
             alert("Please login to manage your watchlist.");
             return;
         }
-
-        if (isAdded) {
+        
+        if (isAdded) {  //line 13
             removeFromWatchlist(movie.id);
             alert("Removed from watchlist")
             console.log("Removed from watchlist")
@@ -34,7 +34,7 @@ const MovieCard = ({ movie }) => {
 
 
     
-
+    // poster image
     const posterPath = movie.poster_path
         ? (movie.poster_path.startsWith('http') ? movie.poster_path : `${TMDB_IMAGE_BASE_URL}${movie.poster_path}`)
         : 'https://via.placeholder.com/500x750?text=No+Poster';
@@ -60,7 +60,7 @@ const MovieCard = ({ movie }) => {
                 </Card.Title>
                 <div className="mt-auto d-flex align-items-center justify-content-between">
                     <div className="d-flex align-items-center gap-1 text-warning small">
-                        <Star size={14} fill="currentColor" />
+                        <Star size={20} fill="currentColor" />
                         <span>{movie.vote_average?.toFixed(1) || 'N/A'}</span>
                     </div>
                     <Badge bg="secondary" className="fw-normal bg-opacity-25 text-muted small">

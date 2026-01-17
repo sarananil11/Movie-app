@@ -41,7 +41,7 @@ const Watchlist = () => {
         <Container className="py-5">
             <div className="d-flex align-items-center justify-content-between mb-5">
                 <h1 className="fw-bold display-5">My Watchlist</h1>
-                <Badge bg="primary" className="rounded-pill px-3 py-2 fs-6">
+                <Badge bg="danger" className="rounded-pill px-3 py-2 fs-6">
                     {watchlist.length} Movies
                 </Badge>
             </div>
@@ -102,7 +102,7 @@ const Watchlist = () => {
                                                 <Button
                                                     variant="outline-secondary"
                                                     size="sm"
-                                                    className="rounded-pill w-100 d-flex align-items-center justify-content-center gap-2 border-secondary text-light"
+                                                    className="rounded-pill w-100 d-flex align-items-center justify-content-center gap-2 border-danger text-light"
                                                     onClick={() => handleEditOpen(movie)}
                                                 >
                                                     <Edit3 size={14} /> Edit Note / Rating

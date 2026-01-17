@@ -2,9 +2,12 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
+// wrapping app
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
+
 
     useEffect(() => {
         const storedUser = localStorage.getItem('movie_app_user');
@@ -14,14 +17,17 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
+
+
     const login = async (userData) => {
         try {
             const response = await fetch(`http://localhost:5000/users?email=${userData.email}&password=${userData.password}`);
             const users = await response.json();
 
             if (users.length > 0) {
+                // fake jason web token
                 const userWithToken = { ...users[0], token: 'mock-jwt-token-' + Date.now() };
-                localStorage.setItem('movie_app_user', JSON.stringify(userWithToken));
+                localStorage.setItem('movie_app_user', JSON.stringify(userWithToken)); // local storage
                 setUser(userWithToken);
                 return { success: true };
             } else {
@@ -33,6 +39,8 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+
+
     const register = async (userData) => {
         try {
             // Check if user already exists
@@ -43,11 +51,13 @@ export const AuthProvider = ({ children }) => {
                 return { success: false, message: 'Email already registered' };
             }
 
+            // data to db
             const response = await fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
             });
+            // auto log after reg
             const newUser = await response.json();
             const userWithToken = { ...newUser, token: 'mock-jwt-token-' + Date.now() };
             localStorage.setItem('movie_app_user', JSON.stringify(userWithToken));

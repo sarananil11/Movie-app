@@ -8,6 +8,7 @@ const NavigationBar = () => {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
 
+    // logout
     const handleLogout = () => {
     const confirmed = window.confirm("Are you sure you want to logout?");
     if (confirmed) {
@@ -17,11 +18,9 @@ const NavigationBar = () => {
 };
 
 
-    
-    
 
     return (
-        <Navbar variant="dark" expand="lg" sticky="top" className="py-3 shadow-sm">
+        <Navbar variant="dark" expand="lg" sticky="top" className="py-3 shadow-lg">
             <Container>
                 <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2 fw-bold text-danger fs-3">
                     <Popcorn size={32} />

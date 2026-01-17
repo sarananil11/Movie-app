@@ -50,7 +50,7 @@ const Mynotes = () => {
         <Container className="py-5">
             <div className="d-flex align-items-center justify-content-between mb-5">
                 <h1 className="fw-bold display-5">My Movie Notes</h1>
-                <Badge bg="primary" className="rounded-pill px-3 py-2 fs-6">
+                <Badge bg="danger" className="rounded-pill px-3 py-2 fs-6">
                     {moviesWithNotes.length} Notes
                 </Badge>
             </div>
@@ -93,7 +93,7 @@ const Mynotes = () => {
                                                 <Button
                                                     variant="outline-secondary"
                                                     size="sm"
-                                                    className="flex-grow-1 rounded-pill d-flex align-items-center justify-content-center gap-2 border-secondary text-light"
+                                                    className="flex-grow-1 rounded-pill d-flex align-items-center justify-content-center gap-2 border-danger text-light"
                                                     onClick={() => handleEditOpen(movie)}
                                                 >
                                                     <Edit3 size={14} /> Edit

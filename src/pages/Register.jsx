@@ -9,11 +9,11 @@ const Register = () => {
     const { register } = useAuth();
     const navigate = useNavigate();
 
-    // Regex patterns
-    const usernameRegex = /^[A-Za-z]{3,}$/; // Only alphabets, min 3 chars
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
+    // regex
+    const usernameRegex = /^[A-Za-z]{3,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; 
-    // Min 8 chars, only letters + numbers, must include at least one number
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const Register = () => {
 
         const { username, email, password } = formData;
 
-        // Validation
+        // Valid
         if (!usernameRegex.test(username)) {
             return setError("Username must be at least 3 alphabets (A-Z only).");
         }
@@ -34,7 +34,7 @@ const Register = () => {
             return setError("Password must be at least 8 characters and include letters and numbers only.");
         }
 
-        // If all good → register
+        // If ok, reg
         const result = await register(formData);
         if (result.success) {
             navigate('/');

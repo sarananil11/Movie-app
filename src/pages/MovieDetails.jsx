@@ -39,6 +39,7 @@ const MovieDetails = () => {
     if (error || !movie) return (
         <Container className="py-5 text-center">
             <div className="alert alert-danger">{error || "Movie not found."}</div>
+            {/* back button  */}
             <Button variant="primary" onClick={() => navigate('/')}>Go Back</Button>
         </Container>
     );

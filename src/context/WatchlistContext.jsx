@@ -7,6 +7,7 @@ export const WatchlistProvider = ({ children }) => {
     const [watchlist, setWatchlist] = useState([]);
     const { user } = useAuth();
 
+    // auto loads user
     useEffect(() => {
         const fetchWatchlist = async () => {
             if (user && user.id) {
@@ -22,20 +23,20 @@ export const WatchlistProvider = ({ children }) => {
             }
         };
         fetchWatchlist();
-    }, [user]); // dependancy array is used when the case is to update the state.
+    }, [user]); // da
 
+    // add
     const addToWatchlist = async (movie) => {
         if (!user) return;
-        // Check using tmdbId (the original movie id)
+
         if (!watchlist.find(m => m.movieId === movie.id)) {
             const movieWithUser = {
                 ...movie,
-                movieId: movie.id, // Store original TMDB ID
+                movieId: movie.id,
                 userId: user.id,
                 personalRating: 0,
                 note: ''
             };
-            // Delete the original 'id' if it exists to let json-server generate a new string ID or avoid collision
             delete movieWithUser.id;
 
             try {
@@ -52,9 +53,11 @@ export const WatchlistProvider = ({ children }) => {
         }
     };
 
+
+    // remove
     const removeFromWatchlist = async (identifier) => {
         if (!user) return;
-        // Find by database id OR tmdbId (identifier could be either)
+
         const item = watchlist.find(m => m.id === identifier || m.movieId === identifier);
 
         if (item) {
@@ -71,6 +74,7 @@ export const WatchlistProvider = ({ children }) => {
         }
     };
 
+    // update
     const updateMovieData = async (identifier, data) => {
         if (!user) return;
         // Find by database id OR tmdbId

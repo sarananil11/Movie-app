@@ -14,10 +14,11 @@ const Home = () => {
         fetchTrending();
     }, []);
 
+    // fn for above
     const fetchTrending = async () => {
         try {
             setLoading(true);
-            const data = await movieService.getTrending();
+            const data = await movieService.getTrending();  // check tmdb.js
             setMovies(data.results);
             setLoading(false);
         } catch (err) {
@@ -26,6 +27,8 @@ const Home = () => {
         }
     };
 
+
+    // searching
     const handleSearch = async (e) => {
         const value = e.target.value;
         setQuery(value);
